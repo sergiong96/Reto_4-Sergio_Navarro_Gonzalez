@@ -1,0 +1,94 @@
+/* Con el objetivo de facilitar el diseño responsive he optado por usar Boostrap 5 para gran parte de los 
+estilos de la aplicación */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    overflow: hidden;
+}
+
+main {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#map {
+    height: 80vh;
+    width: 100vw;
+}
+
+label {
+    text-align: center;
+}
+
+a>i {
+    font-size: 1.5rem;
+}
+
+#panel {
+    height: 20vh;
+    width: 100vw;
+}
+
+#history {
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 50vw;
+    height: 80vh;
+    background-color: #BBDEF0;
+    transition: left 800ms ease-in-out;
+}
+
+#history.active {
+    left: 0;
+    transition: left 800ms ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+
+    #panel,
+    button[type=button],
+    button[type=submit],
+    input[type=text],
+    .modal-dialog {
+        font-size: 0.8rem !important;
+    }
+
+    a>i {
+        font-size: 1rem !important;
+    }
+
+
+    input[type=text] {
+        width: 80%;
+    }
+
+    #panel {
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    #map {
+        height: 70vh;
+    }
+
+    #history {
+        height: 70vh;
+    }
+}
+
+@media screen and (max-width:400px) {
+    #map {
+        height: 75vh;
+    }
+
+    #history {
+        height: 75vh;
+    }
+}

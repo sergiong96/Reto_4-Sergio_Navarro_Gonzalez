@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sergio Navarro González">
+    <link rel="stylesheet" href="./static/css/style.css"> <!--Mis Estilos-->
+    <script src="https://kit.fontawesome.com/903082a171.js" crossorigin="anonymous"></script> <!--FontAwesome-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""> <!--Leaflet-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script> <!--Leaflet-->
+    <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script> <!--Turf-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> <!--Bootstrap 5-->
+    <title>GeoCar</title>
+</head>
+
+<body>
+    <main class="container-fluid">
+
+        <section id="map" class="row z-1"></section>
+
+        <section id="panel" class="row z-1">
+
+            <article id="botonesPanel"
+                class="col-md-3 col-sm-12 ms-2 my-lg-auto ms-md-4 d-flex flex-md-column flex-sm-row p-0 justify-content-center">
+                <button type="button" id="btnAdd" class="btn btn-primary me-2 me-md-0 my-md-2" data-bs-toggle="modal"
+                    data-bs-target="#addModal"><i class="fa-solid fa-plus me-2"></i>Añadir marcador</button>
+                <button type="button" id="historial" class="btn btn-primary"><i
+                        class="fa-solid fa-eye me-2"></i>Historial de ubicaciones</button>
+            </article>
+
+            <article id="infoMarcador"
+                class="col-sm-12 col-md-8 d-flex flex-sm-row flex-md-column flex-lg-row align-items-end align-items-sm-center justify-content-center p-0 ms-2">
+                <div class="d-flex flex-sm-row align-items-center justify-content-evenly">
+                    <div class="form-group d-flex flex-column align-items-center">
+                        <label for="nombre">Marcador: </label>
+                        <input type="text" id="nombre" class="form-control" readonly>
+                    </div>
+                    <div class="form-group d-flex flex-column align-items-center mx-sm-2">
+                        <label for="distancia">Distancia recorrida: </label>
+                        <input type="text" id="distancia" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="form-group d-flex flex-column align-items-center justify-content-center">
+                        <label for="tiempo">Tiempo estacionado: </label>
+                        <input type="text" id="tiempo" class="form-control" readonly>
+                    </div>
+                    <a href="#" class="mt-4 ms-2"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+            </article>
+
+        </section>
+
+
+        <!--Modal-->
+        <div class="modal" id="addModal" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-md z-3">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body form-group d-flex flex-column align-items-center justify-content-center">
+                        <label for="nomb">Nombre del marcador</label>
+                        <input type="text" name="nombreMarcador" id="nomb" class="form-control">
+                    </div>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button type="submit" data-action="add" class="btn btn-primary">Añadir al mapa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Historial-->
+        <aside id="history" class="z-2">
+            <p class="text-center h3">Historial de Ubicaciones</p>
+            <template id="historyTemplate">
+                <ul></ul>
+            </template>
+            <button type="button" data-action="clear" class="btn btn-warning my-3 ms-3"><i
+                    class="fa-solid fa-broom me-2"></i>Limpiar historial</button>
+        </aside>
+    </main>
+
+    <script src="./static/js/app.js"></script> <!--Mis Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> <!--Bootstrap 5 -->
+</body>
+
+</html>
